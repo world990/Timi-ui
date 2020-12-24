@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf1a5b47-23a0-4386-96d1-8918c7651522" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/TopNav.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/Font.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/World.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/World2.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +44,11 @@
     <property name="ts.external.directory.path" value="D:\Software\WebStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\jirengu\lunzi-ui\src\style" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -54,7 +57,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608798737267</updated>
-      <workItem from="1608798738367" duration="7228000" />
+      <workItem from="1608798738367" duration="8510000" />
+      <workItem from="1608808979556" duration="198000" />
+      <workItem from="1608809326878" duration="120000" />
+      <workItem from="1608809466607" duration="305000" />
     </task>
     <task id="LOCAL-00001" summary="初始化Vue-router">
       <created>1608801899865</created>
@@ -77,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608807007350</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TopNav组件封装完毕">
+      <created>1608807948836</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608807948836</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,12 +106,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初始化仓库" />
     <MESSAGE value="初始化Vue-router" />
     <MESSAGE value="搭建HTML结构" />
     <MESSAGE value="HOME组件样式更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="HOME组件样式更新" />
+    <MESSAGE value="TopNav组件封装完毕" />
+    <option name="LAST_COMMIT_MESSAGE" value="TopNav组件封装完毕" />
   </component>
 </project>
