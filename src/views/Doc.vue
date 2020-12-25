@@ -32,9 +32,9 @@ import {inject, Ref} from 'vue';
 
 export default {
   components: {TopNav},
-  setup(){
-    const topNavVisible=  inject<Ref<boolean>>('xxx')
-    return{topNavVisible}
+  setup() {
+    const topNavVisible = inject<Ref<boolean>>('topNavVisible');
+    return {topNavVisible};
   }
 };
 </script>
@@ -42,11 +42,8 @@ export default {
 <style lang="scss" scoped>
 aside {
   background: lightblue;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 70px 16px 16px;
-
+  width: 150px;
+  padding: 16px;
   h2 {
     margin-bottom: 4px;
   }
@@ -55,6 +52,13 @@ aside {
     li {
       padding: 4px 0;
     }
+  }
+
+  @media (max-width: 500px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 70px 16px 16px;
   }
 }
 

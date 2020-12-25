@@ -8,8 +8,9 @@ import {ref,provide} from 'vue'
 export default {
   name: 'App',
   setup(){
-    const topNavVisible=ref(false)
-    provide('xxx',topNavVisible)
+    const width=document.documentElement.clientWidth
+    const topNavVisible=ref(width > 500)
+    provide('topNavVisible',topNavVisible)
   }
 }
 </script>
