@@ -8,23 +8,28 @@ export default {};
 
 
 <style lang="scss" scoped>
-$h:22px;
-button{
+$h: 22px;
+button {
   height: $h;
   width: $h*2;
-  border:none;
+  border: none;
   background: lightblue;
   border-radius: $h/2;
   position: relative;
 }
-span{
+
+span {
   position: absolute;
-  top:2px;
+  top: 2px;
   left: 2px;
   height: 18px;
   width: 18px;
   background: white;
   border-radius: 9px;
+}
+
+button:hover > span {
+  left: calc(100% - 20px)
 }
 
 </style>
