@@ -1,6 +1,6 @@
 <template>
   <button class="lunzi-switch" @click="toggle" :class="{'lunzi-checked': value}">
-    <span></span>
+    <span class="lunzi-switch-span"></span>
   </button>
 
 </template>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" >
 $h: 22px;
 .lunzi-switch {
   height: $h;
@@ -33,7 +33,7 @@ $h: 22px;
   position: relative;
 }
 
-span {
+.lunzi-switch-span {
   position: absolute;
   top: 2px;
   left: 2px;
