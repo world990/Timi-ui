@@ -1,37 +1,46 @@
 @import "style/Font.scss";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 a {
   color: inherit;
   text-decoration: none;
-  &：hover{
-    border-bottom:1px solid black;
-    cursor:pointer;
+
+  &：hover {
+    border-bottom: 1px solid black;
+    cursor: pointer;
   }
 }
+
 input,
 button {
   font-family: inherit;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-h1,h2,h3,h4,h5,h6{
+
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
-body{
-  font-size:16px;
-  font-family:$font-hei;
+
+body {
+  font-size: 16px;
+  font-family: $font-hei;
 }

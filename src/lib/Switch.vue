@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{checked: value}">
+  <button class="lunzi-switch" @click="toggle" :class="{'lunzi-checked': value}">
     <span></span>
   </button>
 
@@ -22,9 +22,9 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
-button {
+.lunzi-switch {
   height: $h;
   width: $h*2;
   border: none;
@@ -44,11 +44,11 @@ span {
   transition: left 250ms;
 }
 
-button.checked {
+button.lunzi-checked {
   background: lightblue;
 }
 
-button.checked > span {
+button.lunzi-checked > span {
   left: calc(100% - 20px)
 }
 
