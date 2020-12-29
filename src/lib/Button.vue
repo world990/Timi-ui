@@ -1,6 +1,7 @@
 <template>
   <button class="lunzi-button"
-          :class="classes">
+          :class="classes"
+          :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -22,6 +23,10 @@ export default {
       type: String,
       default: 'normal'
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    }
   },
 
   setup(props) {
@@ -38,6 +43,7 @@ export default {
 };
 </script>
 <style lang="scss">
+$l: #66cdaa;
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
@@ -153,6 +159,7 @@ $radius: 4px;
         color: darken($blue, 10%);
       }
     }
+
     &.lunzi-level-danger {
       color: red;
 
@@ -162,7 +169,24 @@ $radius: 4px;
       }
     }
   }
-}
 
+  &.lunzi-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $l;
+
+      &:hover {
+        border-color: $l;
+      }
+    }
+  }
+
+  &.lunzi-theme-link, &.lunzi-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $l;
+    }
+  }
+}
 
 </style>
