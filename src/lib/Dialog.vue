@@ -1,18 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="lunzi-dialog-overlay" @click="closeOnClickOverlay"></div>
-    <div class="lunzi-dialog-wrapper">
-      <div class="lunzi-dialog">
-        <header><slot name="title"/> <span @click="close" class="lunzi-dialog-close"></span></header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <teleport to="body">
+      <div class="lunzi-dialog-overlay" @click="closeOnClickOverlay"></div>
+      <div class="lunzi-dialog-wrapper">
+        <div class="lunzi-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="lunzi-dialog-close"></span></header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </teleport>
+
   </template>
 </template>
 
