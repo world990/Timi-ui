@@ -1,19 +1,19 @@
 <template>
   <template v-if="visible">
-  <div class="lunzi-dialog-overlay"></div>
-  <div class="lunzi-dialog-wrapper">
-    <div class="lunzi-dialog">
-      <header>标题 <span class="lunzi-dialog-close"></span></header>
-      <main>
-        <p>第一行</p>
-        <p>第二行</p>
-      </main>
-      <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
+    <div class="lunzi-dialog-overlay" @click="closeOnClickOverlay"></div>
+    <div class="lunzi-dialog-wrapper">
+      <div class="lunzi-dialog">
+        <header>标题 <span @click="close" class="lunzi-dialog-close"></span></header>
+        <main>
+          <p>第一行</p>
+          <p>第二行</p>
+        </main>
+        <footer>
+          <Button level="main" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
+        </footer>
+      </div>
     </div>
-  </div>
   </template>
 </template>
 
@@ -22,13 +22,44 @@ import Button from './Button.vue';
 
 export default {
   components: {Button},
-  props:{
-    visible:{
-      type:Boolean,
-      default:false,
+  props: {
+    visible: {
+      type: Boolean,
+      default: false,
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+    ok: {
+      type: Function
+    },
+    cancel: {
+      type: Function
     }
-  }
 
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+    const closeOnClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close();
+      }
+    };
+    const cancel = () => {
+      context.emit('cancel');
+      close()
+    };
+    const ok = () => {
+      if (props.ok && props.ok() != false) {
+        close();
+      }
+
+    };
+    return {close, closeOnClickOverlay, cancel, ok};
+  }
 
 
 };
