@@ -1,10 +1,19 @@
 <template>
   <div>Dialog示例</div>
-  <h1>示例1</h1>
+  <h1></h1>
   <Button @click="toggle">toggle</Button>
   <Dialog v-model:visible="x" :closeOnClickOverlay="false"
   :ok="f1" :cancel="f2"
-  ></Dialog>
+  >
+    <template v-slot:title>
+      <strong>提示</strong>
+    </template>
+    <template v-slot:content>
+      <div>hi</div>
+      <div>可自定义</div>
+    </template>
+
+  </Dialog>
 </template>
 
 <script lang="ts">

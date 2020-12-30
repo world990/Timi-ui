@@ -3,10 +3,9 @@
     <div class="lunzi-dialog-overlay" @click="closeOnClickOverlay"></div>
     <div class="lunzi-dialog-wrapper">
       <div class="lunzi-dialog">
-        <header>标题 <span @click="close" class="lunzi-dialog-close"></span></header>
+        <header><slot name="title"/> <span @click="close" class="lunzi-dialog-close"></span></header>
         <main>
-          <p>第一行</p>
-          <p>第二行</p>
+          <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
@@ -23,6 +22,7 @@ import Button from './Button.vue';
 export default {
   components: {Button},
   props: {
+
     visible: {
       type: Boolean,
       default: false,
@@ -50,7 +50,7 @@ export default {
     };
     const cancel = () => {
       context.emit('cancel');
-      close()
+      close();
     };
     const ok = () => {
       if (props.ok && props.ok() != false) {
