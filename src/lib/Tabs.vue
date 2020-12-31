@@ -1,6 +1,6 @@
 <template>
   <div class="lunzi-tabs">
-    <div class="lunzi-tabs-nav">
+    <div class="lunzi-tabs-nav" ref="container">
       <div class="lunzi-tabs-nav-item"
            @click="select(t)"
            :class="{selected:t===selected}"
@@ -23,7 +23,7 @@
 <script lang="ts">
 
 import Tab from './Tab.vue';
-import {computed, ref,onMounted} from 'vue';
+import {computed, ref, onMounted, onUpdated} from 'vue';
 
 export default {
   components: {Tab},
@@ -33,15 +33,21 @@ export default {
     }
   },
   setup(props, context) {
-    const navItems=ref<HTMLDivElement[]>([])
-    const indicator=ref<HTMLDivElement>(null)
-    onMounted(()=>{
-      const divs=navItems.value
-      const result=divs.filter(div=>div.classList.
-      contains('selected'))[0]
-      const {width}=result.getBoundingClientRect()
-      indicator.value.style.width=width + 'px'
-    })
+    const navItems = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
+    const x = () => {
+      const divs = navItems.value;
+      const result = divs.filter(div => div.classList.contains('selected'))[0];
+      const {width} = result.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+      const {left: left1} = container.value.getBoundingClientRect();
+      const {left: left2} = result.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px';
+    };
+    onMounted(x);
+    onUpdated(x);
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type != Tab) {
@@ -59,7 +65,7 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    return {defaults, titles, current, select,navItems,indicator};
+    return {defaults, titles, current, select, navItems, indicator, container};
   }
 };
 </script>
@@ -88,20 +94,24 @@ $border-color: #d9d9d9;
         color: $blue;
       }
     }
-    &-indicator{
+
+    &-indicator {
       height: 3px;
       width: 100px;
       background: $blue;
       position: absolute;
       bottom: -1px;
+      transition: all 250ms;
     }
   }
 
   &-content {
     padding: 8px 0;
-    &-item{
+
+    &-item {
       display: none;
-      &.selected{
+
+      &.selected {
         display: block;
       }
     }
