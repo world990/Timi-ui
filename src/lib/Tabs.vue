@@ -5,8 +5,11 @@
            @click="select(t)"
            :class="{selected:t===selected}"
            v-for="(t,index) in titles"
-           :key="index">{{ t }}
+           :ref="el=>{if(el) navItems[index]=el}"
+           :key="index">
+        {{ t }}
       </div>
+      <div class="lunzi-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="lunzi-tabs-content">
       <component class="lunzi-tabs-content-item"
@@ -20,7 +23,7 @@
 <script lang="ts">
 
 import Tab from './Tab.vue';
-import {computed} from 'vue';
+import {computed, ref,onMounted} from 'vue';
 
 export default {
   components: {Tab},
@@ -30,6 +33,15 @@ export default {
     }
   },
   setup(props, context) {
+    const navItems=ref<HTMLDivElement[]>([])
+    const indicator=ref<HTMLDivElement>(null)
+    onMounted(()=>{
+      const divs=navItems.value
+      const result=divs.filter(div=>div.classList.
+      contains('selected'))[0]
+      const {width}=result.getBoundingClientRect()
+      indicator.value.style.width=width + 'px'
+    })
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type != Tab) {
@@ -47,7 +59,7 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    return {defaults, titles, current, select};
+    return {defaults, titles, current, select,navItems,indicator};
   }
 };
 </script>
@@ -61,6 +73,7 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position: relative;
 
     &-item {
       padding: 8px 0;
@@ -74,6 +87,13 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+    }
+    &-indicator{
+      height: 3px;
+      width: 100px;
+      background: $blue;
+      position: absolute;
+      bottom: -1px;
     }
   }
 
