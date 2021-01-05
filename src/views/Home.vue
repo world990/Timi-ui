@@ -1,27 +1,27 @@
 <template>
   <div>
-  <div class="topnavAndBanner">
-    <TopNav/>
-    <div class="banner">
-      <h1>轮子UI</h1>
-      <h2>UI框架</h2>
-      <p class="actions">
-        <a href="https://github.com/world990">GitHub</a>
-        <router-link to="/doc">开始</router-link>
-      </p>
+    <div class="topnavAndBanner">
+      <TopNav/>
+      <div class="banner">
+        <h1>轮子UI</h1>
+        <h2>UI框架</h2>
+        <p class="actions">
+          <a href="https://github.com/world990">GitHub</a>
+          <router-link to="/doc">开始</router-link>
+        </p>
+      </div>
     </div>
-  </div>
     <div class="features">
-    <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-vue"></use>
-    </svg>
-    <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-ts"></use>
-    </svg>
-    <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-dp"></use>
-    </svg>
-  </div>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-vue"></use>
+      </svg>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-ts"></use>
+      </svg>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-dp"></use>
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -34,18 +34,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$green:#02bcb0;
-$color:#007974;
-.topnavAndBanner{
-
-  background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+$green: #02bcb0;
+$color: #007974;
+.topnavAndBanner {
+  background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
-.features{
-  > svg{
+
+.features {
+  > svg {
     width: 64px;
     height: 64px;
   }
 }
+
 .banner {
   color: $color;
   padding: 100px 0;
@@ -64,7 +66,8 @@ $color:#007974;
       margin: 0 8px;
       display: inline-block;
       border-radius: 4px;
-      &:hover{
+
+      &:hover {
         text-decoration: none;
       }
 
