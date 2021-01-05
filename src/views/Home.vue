@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="topnavAndBanner">
     <TopNav/>
     <div class="banner">
       <h1>轮子UI</h1>
@@ -21,8 +21,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.topnavAndBanner{
+  background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+}
 .banner {
-  background: lightgoldenrodyellow;
   padding: 100px 0;
   display: flex;
   flex-direction: column;

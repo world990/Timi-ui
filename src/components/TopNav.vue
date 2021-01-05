@@ -1,6 +1,6 @@
 <template>
   <div class="topNav">
-    <div class="logo" >LOGO</div>
+    <div class="logo">LOGO</div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
@@ -28,7 +28,7 @@ export default {
 
 <style lang='scss' scoped>
 .topNav {
-  background: pink;
+
   display: flex;
   padding: 16px;
   position: fixed;
