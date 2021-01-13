@@ -3,7 +3,7 @@
           :class="classes"
           :disabled="disabled">
     <span v-if="loading" class="lunzi-loadingIndicator"></span>
-    <slot/>
+    <slot />
   </button>
 </template>
 
