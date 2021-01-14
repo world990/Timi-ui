@@ -8,3 +8,4 @@ git branch -M master &&
 git remote add origin git@github.com:world990/Timi-ui-website.git &&
 git push -f -u origin master &&
 cd ..
+
